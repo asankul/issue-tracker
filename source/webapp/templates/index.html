@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block menu %}
-{#        <a class="navbar-brand" href="{% url 'article_add' %}">Создать новую</a>#}
+        <a class="navbar-brand" href="{% url 'list_add' %}">Создать новую</a>
 {% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
 {% for list in lists %}
     <h5 style="display: inline-block;" class="mr-5 pt-2">{{ list.summary }}</h5>
     <a href="{% url 'list_view' list.pk %}" >Подробнее</a>
-    <a href="" >Изменить</a>
+    <a href="{%  url 'list_update' list.pk %}" >Изменить</a>
     <hr>
 {% endfor %}
 <a href="{% url 'list_add' %}" >Создать новую</a>

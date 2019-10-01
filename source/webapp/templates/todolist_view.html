@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}{{ article.title }}{% endblock %}
 {% block menu %}
-    <a class="navbar-brand" href="">Изменить</a>
-    <a class="navbar-brand" href="">Удалить</a>
+    <a class="navbar-brand" href="{% url 'list_update' list.pk %}">Изменить</a>
+    <a class="navbar-brand" href="{%  url 'list_delete' list.pk %}">Удалить</a>
 {% endblock %}
 {% block content %}
     <div class="card mt-5" style="width: 18rem;">
@@ -14,7 +14,7 @@
             <li class="list-group-item">Status: {{ list.status }}</li>
             <li class="list-group-item">Type: {{ list.type }}</li>
             <li class="list-group-item">Date: {{ list.created_at }}</li>
-            <li class="list-group-item"><a href="" >Удалить</a></li>
+            <li class="list-group-item"><a href="{%  url 'list_delete' list.pk %}" >Удалить</a></li>
         </ul>
     </div>
 {% endblock %}

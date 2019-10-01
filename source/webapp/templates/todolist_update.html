@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}Update{% endblock %}
 {% block menu %}
-        <a class="navbar-brand" href="{% url 'article_view' article.pk %}">Просмотр</a>
+        <a class="navbar-brand" href="{% url 'list_view' list.pk %}">Просмотр</a>
 {% endblock %}
 {% block content %}
     <h1>Update to-do list</h1>
-<form action="{% url 'article_update' article.pk %}" method="POST">
+<form action="{% url 'list_update' list.pk %}" method="POST">
     {% include 'partial/todolist_form.html' with button_text="Update" %}
 </form>
 {% endblock %}
