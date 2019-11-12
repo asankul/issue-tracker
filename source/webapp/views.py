@@ -49,8 +49,8 @@ class ToDoListUpdateView(View):
         form = ToDoListForm(data={
             'summary': list.summary,
             'description': list.description,
-            'status': list.status,
-            'type': list.type
+            'status': list.status_id,
+            'type': list.type_id
         })
         return render(request, 'todolist_update.html', context={'form': form, 'list': list})
 
@@ -58,12 +58,12 @@ class ToDoListUpdateView(View):
         list = get_object_or_404(ToDo, pk=kwargs.get('pk'))
         form = ToDoListForm(data=request.POST)
         if form.is_valid():
-            list.summary = form.cleaned_data['summary'],
-            list.description = form.cleaned_data['description'],
-            list.status = form.cleaned_data['status'],
+            list.summary = form.cleaned_data['summary']
+            list.description = form.cleaned_data['description']
+            list.status = form.cleaned_data['status']
             list.type = form.cleaned_data['type']
             list.save()
-            return redirect('article_view', pk=list.pk)
+            return redirect('list_view', pk=list.pk)
         else:
             return render(request, 'todolist_update.html', context={'form': form, 'list': list})
 

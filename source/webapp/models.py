@@ -8,8 +8,8 @@ class ToDo(models.Model):
         verbose_name_plural = "ToDo lists"
     summary = models.CharField(max_length=200, null=False, blank=False, verbose_name='Заголовок')
     description = models.TextField(max_length=3000, null=True, blank=True, verbose_name='Текст')
-    status = models.ForeignKey('Status', on_delete=models.PROTECT, null=True, blank=True, verbose_name='Статус', related_name='list')
-    type = models.ForeignKey('Type', on_delete=models.PROTECT, null=True, blank=True, verbose_name='Тип', related_name='list')
+    status = models.ForeignKey('Status', on_delete=models.PROTECT, null=False, blank=False, verbose_name='Статус', related_name='list')
+    type = models.ForeignKey('Type', on_delete=models.PROTECT, null=False, blank=False, verbose_name='Тип', related_name='list')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
 
     def __str__(self):
