@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from webapp.views import IndexView, TodoView, ToDoListCreateView, ToDoListUpdateView, ToDoListDeleteView
+from webapp.views import IndexView, TodoView, ToDoListCreateView, ToDoListUpdateView, ToDoListDeleteView, StatusCreateView, StatusView, StatusUpdateView, StatusDeleteView, TypeView, TypeCreateView, TypeUpdateView, TypeDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +24,12 @@ urlpatterns = [
     path('lists/create', ToDoListCreateView.as_view(), name='list_add'),
     path('list/<int:pk>/edit/', ToDoListUpdateView.as_view(), name='list_update'),
     path('list/<int:pk>/delete/', ToDoListDeleteView.as_view(), name='list_delete'),
+    path('lists/status', StatusView.as_view(), name='statuses'),
+    path('lists/status/create', StatusCreateView.as_view(), name='status_add'),
+    path('list/status/<int:pk>/edit/', StatusUpdateView.as_view(), name='status_update'),
+    path('list/status/<int:pk>/delete/', StatusDeleteView.as_view(), name='status_delete'),
+    path('lists/type', TypeView.as_view(), name='types'),
+    path('lists/type/create', TypeCreateView.as_view(), name='type_add'),
+    path('list/type/<int:pk>/edit/', TypeUpdateView.as_view(), name='type_update'),
+    path('list/type/<int:pk>/delete/', TypeDeleteView.as_view(), name='type_delete'),
 ]

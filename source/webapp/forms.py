@@ -9,3 +9,12 @@ class ToDoListForm(forms.Form):
     description = forms.CharField(max_length=3000, label='Text', required=False, widget=widgets.Textarea)
     status = forms.ModelChoiceField(queryset=Status.objects.all(), required=True, label='Status', empty_label=None)
     type = forms.ModelChoiceField(queryset=Type.objects.all(), required=True, label='Type', empty_label=None)
+
+
+class StatusForm(forms.Form):
+    name = forms.CharField(max_length=20, label='Status', required=True)
+
+
+class TypeForm(forms.Form):
+    name = forms.CharField(max_length=20, label='Status', required=True)
+

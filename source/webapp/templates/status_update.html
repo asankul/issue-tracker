@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Update{% endblock %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+    <h1>Update status</h1>
+    <form action="{% url 'status_update' list.pk %}" method="POST">
+        {% include 'partial/todolist_form.html' with button_text="Update" %}
+    </form>
+{% endblock %}
